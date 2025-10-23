@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>yzyfantasy</title>
+  <link rel="icon" href="">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #ffffff;
+    }
+
+    .album {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      max-width: 400px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .album:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 40px rgba(255, 255, 255, 0.1);
+    }
+
+    .album-cover {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    .album-title {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .tracklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .track {
+      padding: 10px;
+      margin: 8px 0;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .track:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    audio {
+      margin-top: 20px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>yzyfantasy</h1>
+  </header>
+
+  <div class="album">
+    <img src="fl2-cover.jpg" alt="Flashing Lights 2 For Upload" class="album-cover">
+    <div class="album-title">Flashing Lights 2 For Upload</div>
+    <ul class="tracklist">
+      <li class="track" data-src="fl2.mp3">fl2</li>
+    </ul>
+    <audio controls id="audioPlayer">
+      <source src="" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <script>
+    const audioPlayer = document.getElementById("audioPlayer");
+    const tracks = document.querySelectorAll(".track");
+
+    tracks.forEach(track => {
+      track.addEventListener("click", () => {
+        const src = track.getAttribute("data-src");
+        audioPlayer.src = src;
+        audioPlayer.play();
+      });
+    });
+  </script>
+</body>
+</html>
